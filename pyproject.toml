@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "buwizz"
+version = "0.1.0"
+description = "Control a BuWizz 3.0 LEGO power brick (motors, servos, sensors) from Python over Bluetooth LE."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "BuWizz Python project" }]
+keywords = ["buwizz", "lego", "bluetooth", "ble", "motor", "robotics"]
+dependencies = [
+    "bleak>=0.21",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://buwizz.com/"
+"Official API" = "https://buwizz.com/downloads/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

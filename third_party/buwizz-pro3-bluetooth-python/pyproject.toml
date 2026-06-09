@@ -1,0 +1,115 @@
+[tool.poetry]
+# Intentionally long and specific name so BuWizz have rights to a more abstract concise named library
+name = "buwizz-pro3-bluetooth-python"
+version = "0.1.0"
+description = "BuWizz Pro 3 Lego controller python bluetooth library based on bleak"
+authors = ["Josh Peak <neozenith.dev@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+bleak = "^0.21.1"
+
+[[tool.poetry.source]]
+name = "piwheels"
+url = "https://www.piwheels.org/simple/"
+priority = "supplemental"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.6"
+mypy = "^1.7.1"
+pytest = "^7.4.3"
+coverage = {extras = ["toml"], version = "^7.3.2"}
+pytest-xdist = "^3.5.0"
+pytest-randomly = "^3.15.0"
+md-toc = "^8.2.2"
+isort = "^5.12.0"
+invoke = "^2.2.0"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.4.14"
+mkdocstrings = "^0.24.0"
+mkdocstrings-python = "^1.7.5"
+mkdocs-gen-files = "^0.5.0"
+mkdocs-literate-nav = "^0.6.1"
+mkdocs-section-index = "^0.3.8"
+mkdocs-git-authors-plugin = "^0.7.2"
+mkdocs-git-revision-date-localized-plugin = "^1.2.1"
+mkdocs-render-swagger-plugin = "^0.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",# pycodestyle
+    "F", # Pyflakes
+    "UP", # pyupgrade
+    "B", # flake8-bugbear
+    "SIM", # flake8-simplify
+    "I", # isort
+    "PTH", # falek8-use-pathlib 
+    "TCH", # flake8-type-checking
+    "S", # flake8-bandit
+    "C90", #mccabe
+]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+[tool.ruff.lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 5.
+max-complexity = 10
+
+[tool.ruff.lint.isort]
+# multi-line-output = 3
+# import-heading-stdlib = "Standard Library"
+# import-heading-firstparty = "Our Libraries"
+# import-heading-thirdparty = "Third Party"
+
+# [tool.isort]
+# profile = "black"
+# multi_line_output = 3
+# import_heading_stdlib = "Standard Library"
+# import_heading_firstparty = "Our Libraries"
+# import_heading_thirdparty = "Third Party"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-s -vvv --color=yes"
+
+[tool.coverage.run]
+omit = ["tests/*", "**/__init__.py", "tasks.py"]
+branch = true
+
+[tool.mypy]
+pretty = true
+show_error_codes = true
+show_column_numbers = true
+show_error_context = true
+exclude = [
+  'tests/'
+]
+follow_imports = 'silent'
+ignore_missing_imports = true
+
+# Work your way up to these:
+disallow_incomplete_defs = true
+# disallow_untyped_defs = true 
+# disallow_untyped_calls = true
+# strict = true

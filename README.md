@@ -18,6 +18,8 @@ references to the publicly available BuWizz firmware/software.
 | `docs/firmware.md` | BuWizz 3.0 firmware architecture & OTA-update mechanism (from the public API) |
 | `docs/ble-protocol.md` | Condensed BLE protocol reference |
 | `docs/python-lego-sensors.md` | **Guide + roadmap: using Python with LEGO sensors** |
+| `docs/ios-ble-latency-software.md` | iOS 26 BLE-lag fix plan for the **app** developer (Flutter) |
+| `docs/ios-ble-latency-firmware.md` | iOS 26 BLE-lag fix plan for the **firmware** team |
 | `third_party/` | Imported MIT-licensed community library (with its license preserved) |
 | `NOTICE.md` | Provenance & licensing of all imported/referenced material |
 
